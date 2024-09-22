@@ -1,0 +1,477 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>[OM] - Teste de Admissão</title>
+    <link rel="icon" href="https://i.imgur.com/VLC7WmW.png">
+    <link rel="stylesheet" href="css.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
+    
+    <style>
+        html {
+            height: 100%;
+            background: #f1f1f1;
+    background-image: url('https://i.imgur.com/EzlQF6I.png');
+    background-position: center center;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-blend-mode: normal;
+            animation: gradientAnimation 15s ease infinite;
+        }
+    
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: "Poppins", sans-serif;
+            overflow-y: auto;
+            background: transparent;
+        }
+    
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 80px;
+            margin-bottom: 40px; 
+            margin-left: 10px;
+            position: relative;
+            z-index: 1; 
+            transition: background-color 0.3s;
+        }
+    
+        .tittle {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    
+        .details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+    
+        .input-box {
+            position: relative;
+        }
+    
+        .details_span {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+    
+        input[type="text"],
+        select,
+        input[type="number"] {
+            width: 90%; 
+            height: 52px;
+            background-color: #e7e7e7;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            color: #282828;
+            transition: border-color 0.3s ease;
+        }
+    
+        .button {
+            grid-column: span 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            background-color: white;
+            color: rgba(0, 0, 0, 0.5);
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 1.15rem;
+            height: 90px;
+            z-index: 2;
+            position: relative;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+    
+        .button .icon {
+            margin-right: 8px;
+            height: 1.15rem;
+            width: auto;
+        }
+    
+        .button:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.01);
+        }
+    
+        .card {
+    display: block; 
+}
+
+        .card.active {
+            display: block; 
+        }
+    
+    
+        .form-container .row {
+            display: flex;
+            gap: 10px;
+        }
+    
+        .form-container .row input,
+        .form-container .row select,
+        .form-container .row textarea {
+            width: calc(50% - 5px);
+        }
+    
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+    
+        ::-webkit-scrollbar-thumb {
+        background: #237927;
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #237927;
+      }
+
+      body {
+        scrollbar-width: thin;
+        scrollbar-color: #2b832f #104212;
+      }
+    
+        .buttons {
+            display: flex;
+            justify-content: space-around; 
+            margin-bottom: 20px; 
+        }
+    
+        .initial-image {
+            display: block;
+            margin: 0 auto 20px;
+            max-width: 100%;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 0;
+            margin-top: 100px;
+        }
+    
+        .card.active + .initial-image {
+            display: none; 
+        }
+    
+        input[type="submit"] {
+            width: 100%;
+            height: 68px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+    
+        input[type="submit"]:hover {
+            background-color: rgba(0, 0, 0, 0.637);
+        }
+    
+        
+        @media screen and (min-width: 2560px) and (min-height: 1440px) {
+            .initial-image {
+                margin-top: 600px; 
+            }
+            .container {
+                margin-top: 220px; 
+            }
+        }
+    
+        @media screen and (min-width: 1920px) and (min-height: 1080px) {
+            .initial-image {
+                margin-top: 330px;
+            }
+            .container {
+                margin-top: 200px; 
+            }
+        }
+    
+        @media screen and (min-width: 1600px) and (max-width: 1919px) {
+            .initial-image {
+                margin-top: 270px; 
+            }
+            .container {
+                margin-top: 150px; 
+            }
+        }
+    
+        @media screen and (min-width: 1366px) and (max-width: 1599px) {
+            .initial-image {
+                margin-top: 150px; 
+            }
+            .container {
+                margin-top: 120px; 
+        }
+    }
+    
+        @media screen and (min-width: 1280px) and (max-width: 1365px) {
+            .initial-image {
+                margin-top: 130px; 
+            }
+            .container {
+                margin-top: 110px; 
+            }
+        }
+    
+        @media screen and (min-width: 1024px) and (max-width: 1279px) {
+            .initial-image {
+                margin-top: 40px; 
+            }
+            .container {
+                margin-top: 100px; 
+            }
+        }
+    
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
+            .initial-image {
+                margin-top: 110px; 
+            }
+            .container {
+                margin-top: 90px; 
+            }
+        }
+    
+        @media screen and (max-width: 767px) {
+            .initial-image {
+                margin-top: 130px; 
+            }
+            .container {
+                margin-top: 80px; 
+            }
+        }
+    </style>
+    
+    
+</head>
+<body>
+    <body>
+        <img src="https://i.imgur.com/GU8oq2S.png" alt="Imagem Inicial" class="initial-image">
+        <div class="container">
+            
+            
+            <div class="card" id="postagem_testes">
+                <div class="tittle">ENTRADA</div>
+                <form id="postagem_testes_forms" action="#" onsubmit="return fill_testes(event)">
+                    <div class="details">
+                        <input type="text" name="horario_envio_test" id="horario_envio_test" value="-" style="display: none;">
+                        <div class="input-box">
+                            <span class="details_span">Início da Aplicação</span>
+                            <input id="inicio_aplicacao" name="inicio_aplicacao" class="data_hour" type="text" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details_span">Nickname do Aplicador</span>
+                            <input id="nickname_aplicador" name="nickname_aplicador" type="text" placeholder="Nickname do aplicador." required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details_span">Policiais Presentes</span>
+                            <input id="nickname_pres" name="nickname_pres" type="text" placeholder="Separe com ' / '" required>
+                        </div>
+                        <div class="input-box">
+                            <span class="details_span">Policiais Aprovados</span>
+                            <input id="nickname_aprov" name="nickname_aprov" type="text" placeholder="Separe com ' / '">
+                        </div>
+                        
+                        <div class="input-box" style="grid-column: span 2;">
+                            <span class="details_span">Comentários Adicionais</span>
+                            <input id="comentarios" name="comentarios" type="text" placeholder="Comentários sobre a aplicação, se necessário">
+                        </div>
+                        
+                        <div class="button" id="enviar_teste">
+                            <input type="submit" value="Enviar">
+                        </div>
+                        <div class="button" style="display: none;" id="enviar_teste_dis">
+                            <input type="submit" value="Enviando...Aguarde!" disabled>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <textarea style="display: none;" id="fa-generated-message"></textarea>
+            
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+      
+        preencher_data('inicio_aplicacao');
+
+        $('#select_options').on('change', function() {
+            $(".card").hide();
+            $("#" + $(this).val()).show();
+        }).change();
+    });
+
+    function fill_testes(e) {
+        e.preventDefault();
+        var isValid = true;
+
+    
+        if($("#postagem_testes_forms").find("input").val().trim() === "") {
+            isValid = false;
+        }
+
+        if(isValid) {
+            document.getElementById('enviar_teste').style.display = 'none';
+            document.getElementById('enviar_teste_dis').style.display = 'flex';
+            preencher_data('horario_envio_test');
+
+            var horarioFinalEnvio = new Date();
+            document.getElementById('horario_envio_test').value = horarioFinalEnvio.toISOString();
+
+            // Gera a mensagem com os dados para o fórum
+            var texto = gerarMensagem();
+            document.getElementById('fa-generated-message').value = texto;
+
+            var form = document.getElementById("postagem_testes_forms");
+            var link_url = 'https://script.google.com/macros/s/AKfycbwnurvis350tB-Hlctfp2Rw4XRGRWGgUplzOS6VjD2cqsH9LZ55b4uNbDHLAuqsxNHS/exec';
+
+            fetch(link_url, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    console.log('Respostas enviadas!');
+                    if ($("#nickname_aprov").val().trim() === '') {
+                        
+                        window.location.href = 'https://www.policiarcc.com/t37086-da-script-do-teste-de-admissao';
+                    } else if (parseInt($("#necessidade_novos").val()) != 5) {
+                        postToForum(); 
+                    }
+                })
+                .catch(error => {
+                    console.error('Resposta não enviada para a planilha. Contate um membro do ministério!');
+                });
+
+            window.open('https://docs.google.com/spreadsheets/d/16Aeqt9ku1Pj-OuBH0fI0FP67CmCzxJty3wxeXSCQQvE/edit?gid=39180384#gid=39180384');
+        } else {
+            alert('Preencha todos os campos!');
+        }
+        return isValid;
+    }
+
+    function preencher_data(id) {
+        var horario = new Date();
+        horario.setMinutes(horario.getMinutes() + horario.getTimezoneOffset() - 180); 
+        var data_hoje = horario.getDate().toString().padStart(2, '0');
+        const meses = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul","Ago","Set","Out","Nov","Dez"];
+        var mes_hoje = meses[horario.getMonth()];
+        var ano_hoje = horario.getFullYear();
+        var horario_hoje = horario.getHours().toString().padStart(2, '0');
+        var minutos_hoje = horario.getMinutes().toString().padStart(2, '0');
+        var segundos_hoje = horario.getSeconds().toString().padStart(2, '0');
+
+        var dataCompleta = `${data_hoje} ${mes_hoje} ${ano_hoje} ${horario_hoje}:${minutos_hoje}:${segundos_hoje}`;
+        document.getElementById(id).value = dataCompleta;
+    }
+
+    function gerarMensagem() {
+        var horario = new Date();
+        var data_hoje = horario.getDate().toString().padStart(2, '0');
+        const meses = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
+        var mes_hoje = meses[horario.getMonth()];
+        var ano_hoje = horario.getFullYear();
+        var nickname_aprov = $("#nickname_aprov").val().trim();
+
+        var texto = '';
+        if (parseInt($("#necessidade_novos").val()) == 5) {
+            $("#nickname_aprov").val('Não houveram aprovados');
+            texto = "[font=Lexend Deca][size=15][color=#263b32][b]ENTRADA[/b][/color][/size]\n[b]Não houveram aprovados[/b][/font]";
+        } else if (nickname_aprov !== '') {
+            var entradas = nickname_aprov.split('/');
+            var lista = '';
+            entradas.forEach(function (nickname) {
+                nickname = nickname.trim(); 
+                lista += "\n " + nickname + " - " + data_hoje + ' ' + mes_hoje + ' ' + ano_hoje;
+            });
+
+            texto = "[font=Lexend Deca][size=15][color=#263b32][b]ENTRADA[/b][/color][/size]\n" + lista + "[/font]";
+
+        return texto;
+    }
+}
+
+    function postToForum() {
+        if ($("#fa-generated-message").val() !== '') {
+            $('form').find('button[type="submit"]').text('Postando...');
+            setTimeout(function () {
+                $.post('/post', {
+                    t: 37957,
+                    message: $('#fa-generated-message').val().trim(),
+                    mode: 'reply',
+                    tid: $('[name="tid"]:first').val(),
+                    post: 1,
+                }).done(function () {
+                    alert('Você será redirecionado para o tópico. Não esqueça de conferir sua postagem!');
+                    location.href = 'http://' + location.host + '/t37638-?view=newest';
+                }).fail(function () {
+                    alert('Houve um erro! Tente novamente!');
+                });
+            }, 600);
+        }
+    }
+</script>
+
+    <script>
+    function toggleForm(formId) {
+        $(".card").hide(); 
+        $("#" + formId).show(); 
+    }
+    </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+           
+            function getQueryParam(param) {
+                var urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(param);
+            }
+
+            
+            var nomeUsuario = getQueryParam('nome');
+
+           
+            if (nomeUsuario) {
+                document.getElementById('nickname_aplicador').value = nomeUsuario;
+            }
+        });
+    </script>
+    </body>
+    </html>
